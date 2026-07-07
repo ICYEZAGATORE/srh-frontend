@@ -36,7 +36,7 @@ export default function FontSizeControl() {
               className={`px-4 py-2 rounded-xl border font-semibold text-sm transition-colors ${
                 active
                   ? 'bg-[var(--clr-primary)] text-white border-transparent'
-                  : 'bg-[var(--clr-primary-light)] text-[var(--clr-primary)] border-[var(--clr-border)]'
+                  : 'bg-[var(--clr-primary-light)] text-[var(--clr-text-primary)] border-[var(--clr-border)]'
               }`}
             >
               {t(opt.labelKey)}

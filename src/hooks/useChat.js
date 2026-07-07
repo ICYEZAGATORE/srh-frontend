@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef } from 'react'
 import api from '../api'
+import { simplifyText } from '../api/accessibilityClient'
 import { useSession } from '../contexts/SessionContext'
 import { useLanguage } from '../contexts/LanguageContext'
 
@@ -49,12 +50,20 @@ export function useChat({ onOffline } = {}) {
         devLog('[chat] response received', { safe: res.safe, fallback: res.fallback })
 
         const isFallback = res.fallback === true || res.safe === false
+        let text = isFallback ? res.fallback_message || res.response || '' : res.response || ''
+
+        // Simplified-language mode: when enabled, run safe answers through the
+        // Accessibility Services /v1/simplify step. This is a no-op (returns the
+        // original text) when the service is not configured, so behaviour is
+        // unchanged in the mock/demo build. Fallback/referral text is left as-is.
+        if (simplified && !isFallback && text) {
+          text = await simplifyText(text, lang)
+        }
+
         const assistantMsg = {
           id: makeId(),
           role: 'assistant',
-          text: isFallback
-            ? res.fallback_message || res.response || ''
-            : res.response || '',
+          text,
           isFallback,
           referral: isFallback ? res.referral || null : null,
         }

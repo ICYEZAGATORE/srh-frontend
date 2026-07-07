@@ -1,0 +1,8 @@
+# Core service deps — light, fast to install. With ONLY these, /health and
+# /v1/simplify work; /v1/tts and /v1/alt-text return 503 until the ML deps
+# (requirements-ml.txt) and models are installed.
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+python-multipart==0.0.9
+pillow==10.4.0

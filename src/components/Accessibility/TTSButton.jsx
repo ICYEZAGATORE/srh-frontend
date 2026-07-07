@@ -24,7 +24,7 @@ export default function TTSButton({ text, lang }) {
       className={`inline-flex items-center justify-center w-8 h-8 rounded-lg shrink-0 transition-colors ${
         playing
           ? 'bg-[var(--clr-primary)] text-white'
-          : 'bg-[var(--clr-primary-light)] text-[var(--clr-primary)]'
+          : 'bg-[var(--clr-primary-light)] text-[var(--clr-text-primary)]'
       }`}
     >
       {playing ? (

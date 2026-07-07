@@ -11,7 +11,7 @@
 :root {
   --clr-primary:        #0A7C73; /* deep teal — main brand, headers, active states */
   --clr-primary-light:  #E6F4F3; /* very light teal — card backgrounds, input fill */
-  --clr-accent:         #F4845F; /* warm coral-orange — CTAs, speaker button, highlights */
+  --clr-accent:         #C2461F; /* warm terracotta — CTAs, send, highlights (white text = 5.0:1 AA) */
   --clr-accent-light:   #FEF0EB; /* light coral — hover states, soft badges */
   --clr-yellow:         #F5C842; /* warm yellow — category pill active, star moments */
   --clr-yellow-light:   #FEF9E7; /* light yellow — fallback card background */
@@ -20,6 +20,17 @@
   --clr-text-primary:   #1A2E2D; /* near-black with teal undertone */
   --clr-text-secondary: #5A6E6D; /* muted text — subtext, placeholders */
   --clr-border:         #D4E5E3; /* light teal-tinted borders */
+
+  /* Semantic state tokens (all verified: white text on solid, and solid-as-text
+     on white, meet WCAG AA >= 4.5:1). NOTE: there is deliberately NO red "error"
+     token — this product forbids red anywhere (anxious teen audience). Error /
+     validation states use --clr-warning. */
+  --clr-success:        #1F7A54; /* green  — success/confirmation */
+  --clr-success-light:  #E6F4EC;
+  --clr-warning:        #9A5B00; /* amber  — warnings, non-red alerts */
+  --clr-warning-light:  #FBF0DC;
+  --clr-info:           #0B6076; /* teal-blue — informational */
+  --clr-info-light:     #E4F1F5;
 }
 
 /* High-contrast override — swaps tokens only. The entire UI re-themes from
@@ -36,6 +47,13 @@
   --clr-text-primary:   #FFFFFF;
   --clr-text-secondary: #FFFF00;
   --clr-border:         #FFFFFF;
+  /* Semantic tokens collapse into the black/white/yellow HC scheme */
+  --clr-success:        #000000;
+  --clr-success-light:  #000000;
+  --clr-warning:        #000000;
+  --clr-warning-light:  #000000;
+  --clr-info:           #000000;
+  --clr-info-light:     #000000;
 }
 
 @layer base {

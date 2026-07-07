@@ -1,0 +1,11 @@
+# Heavy ML deps for /v1/tts and /v1/alt-text. These are LARGE (torch alone is
+# hundreds of MB; models download on first use). Install only where GPU/CPU
+# resources allow — NOT required to run /health or /v1/simplify.
+#
+#   pip install -r requirements.txt -r requirements-ml.txt
+#
+# TTS (Coqui — maintained successor to Mozilla TTS)
+TTS==0.22.0
+# Image captioning for alt-text
+transformers==4.44.2
+torch==2.4.1

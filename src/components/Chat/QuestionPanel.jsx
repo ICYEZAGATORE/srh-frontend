@@ -135,7 +135,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold whitespace-nowrap flex-shrink-0 border ${
                   selected
                     ? 'bg-[var(--clr-primary)] text-white border-transparent'
-                    : 'bg-[var(--clr-primary-light)] text-[var(--clr-primary)] border-[var(--clr-primary)]/20'
+                    : 'bg-[var(--clr-primary-light)] text-[var(--clr-text-primary)] border-[var(--clr-border)]'
                 }`}
               >
                 {CATEGORY_ICONS[cat.id]}
@@ -155,7 +155,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
           {activeCategory.questions.map((q) => (
             <div
               key={q}
-              className="bg-[var(--clr-surface)] rounded-2xl p-4 border border-[var(--clr-border)] flex items-start justify-between gap-3"
+              className="bg-[var(--clr-surface)] rounded-2xl p-4 border border-[var(--clr-border)] flex items-start justify-between gap-3 transition-colors hover:border-[var(--clr-primary)]/40"
             >
               {/* left accent strip */}
               <div className="w-1 rounded-full bg-[var(--clr-accent)] self-stretch flex-shrink-0" aria-hidden="true" />
