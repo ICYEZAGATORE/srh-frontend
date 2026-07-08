@@ -2,18 +2,29 @@
   "app_name": "SRH Education Platform",
   "tagline": "Ask any question about your health — privately and without judgment.",
   "lang_toggle": "Kinyarwanda",
+  "skip_to_content": "Skip to main content",
+  "nav_home": "Home",
+  "nav_start_chat": "Start a conversation",
+
   "consent_title": "Welcome — let's set up a safe space",
   "consent_body": "This is a private, anonymous space to learn about sexual and reproductive health. We don't ask for your name and we don't store who you are. You can stop at any time.",
   "consent_confirm": "Continue",
   "consent_age_confirm": "I am 13 years or older",
   "consent_anonymous_confirm": "I understand my questions are anonymous",
+
   "chat_placeholder": "Type your question here...",
   "chat_send": "Send",
   "chat_loading": "Preparing a thoughtful answer...",
   "chat_fallback_message": "I'm not able to help with that. Please reach out to a trusted health worker.",
   "chat_referral_label": "Where to get help",
+  "chat_back_home": "Back to home",
+  "chat_heading": "Ask your health questions",
+
   "tts_play": "Listen to this answer",
   "tts_stop": "Stop listening",
+  "read_page_aloud": "Read this page aloud",
+  "read_page_stop": "Stop reading",
+
   "settings_title": "Accessibility settings",
   "settings_font_size": "Text size",
   "settings_contrast": "High contrast",
@@ -23,8 +34,51 @@
   "settings_font_xl": "Extra large",
   "settings_open": "Open accessibility settings",
   "settings_close": "Close settings",
+
   "offline_banner": "Service temporarily unavailable. Please try again later.",
   "health_hotline_label": "Rwanda Health Hotline",
   "health_hotline_number": "114",
-  "assessment_placeholder": "Assessment module coming soon."
+  "assessment_placeholder": "Assessment module coming soon.",
+
+  "landing_eyebrow": "Free · Private · Judgment-free",
+  "landing_hero_q1": "Is this normal?",
+  "landing_hero_q2": "How do I stay safe?",
+  "landing_hero_q3": "Who can I talk to?",
+  "landing_hero_typed_label": "Example questions you can ask",
+  "landing_title": "Real answers about your body, your health, your choices.",
+  "landing_who": "For young people and persons with disabilities in Rwanda — in Kinyarwanda or English.",
+  "landing_reassure": "Private and anonymous. This chat shares information, not emergency care — for urgent help it points you to real services like 114.",
+  "landing_learn_more": "How it works, languages, accessibility & safety",
+  "landing_lang_title": "Your language",
+  "landing_lang_body": "Switch between Kinyarwanda and English at any time using the language button at the top of the screen.",
+  "landing_subtitle": "A free, private space where young people in Rwanda can ask anything about sexual and reproductive health — and get clear, caring answers in Kinyarwanda or English.",
+  "landing_cta_start": "Start a conversation",
+  "landing_cta_how": "See how it works",
+
+  "landing_what_title": "What is this?",
+  "landing_what_body": "The SRH Education Platform is a friendly chatbot built for teenagers and persons with disabilities in Rwanda. Ask about puberty, relationships, contraception, HIV and other infections, pregnancy, consent, and staying safe — in the language you're most comfortable with.",
+
+  "landing_help_title": "What it can help with",
+  "landing_help_1": "Puberty and the changes your body goes through",
+  "landing_help_2": "Preventing pregnancy and understanding contraception",
+  "landing_help_3": "HIV and other sexually transmitted infections",
+  "landing_help_4": "Healthy relationships, consent, and staying safe",
+  "landing_help_5": "Where to find real-world help near you",
+
+  "landing_private_title": "Private and anonymous",
+  "landing_private_body": "We never ask for your name and we don't store who you are. Your questions are yours alone, and you can stop any time.",
+
+  "landing_safety_title": "If it's an emergency",
+  "landing_safety_body": "This chatbot shares information — it is not a doctor or a counsellor. For emergencies or urgent help it will point you to real services, such as Rwanda's health line 114, instead of trying to answer.",
+
+  "landing_how_title": "How to use it",
+  "landing_how_1": "Tap \"Start a conversation\" and confirm that you are 13 or older and that your chat is anonymous.",
+  "landing_how_2": "Type your question — or tap one of the ready-made questions if typing is hard.",
+  "landing_how_3": "Switch between Kinyarwanda and English any time using the language button.",
+  "landing_how_4": "Open the accessibility menu to make text larger, turn on high contrast, or have answers read aloud.",
+
+  "landing_access_title": "Built to be used by everyone",
+  "landing_access_body": "Read-aloud, larger text, high-contrast colours, and full keyboard support are built in on every screen — including this one.",
+
+  "landing_footer_note": "Made for young people in Rwanda. You deserve clear, kind answers."
 }

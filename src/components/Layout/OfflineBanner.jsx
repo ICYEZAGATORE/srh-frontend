@@ -12,7 +12,7 @@ export default function OfflineBanner() {
     <div
       role="alert"
       aria-live="assertive"
-      className="bg-[var(--clr-accent)] text-white px-4 py-3 flex items-start gap-3"
+      className="bg-[var(--clr-accent)] text-[var(--clr-on-accent)] px-4 py-3 flex items-start gap-3"
     >
       {/* warning icon — circle with ! inside */}
       <svg

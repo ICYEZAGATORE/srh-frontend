@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:a11y": "vitest run src/test"
+    "test:a11y": "vitest run src/test",
+    "smoke": "node scripts/smoke-backend.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.18",

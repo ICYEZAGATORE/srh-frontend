@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { LanguageProvider } from './contexts/LanguageContext'
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext'
 import { SessionProvider, useSession } from './contexts/SessionContext'
+import Landing from './pages/Landing'
 import Home from './pages/Home'
 import Assessment from './pages/Assessment'
 
@@ -17,6 +18,7 @@ const FONT_CLASS = {
  */
 function AppShell() {
   const { fontSize, highContrast } = useSession()
+  const { t } = useLanguage()
   const rootClass = [
     'min-h-screen',
     'bg-[var(--clr-bg)]',
@@ -29,8 +31,14 @@ function AppShell() {
 
   return (
     <div className={rootClass}>
+      {/* Skip-to-content link — first focusable element on every page (item 1).
+          Each route exposes a <main id="main-content">. */}
+      <a href="#main-content" className="skip-link">
+        {t('skip_to_content')}
+      </a>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/chat" element={<Home />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

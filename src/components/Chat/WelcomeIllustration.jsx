@@ -67,7 +67,7 @@ export default function WelcomeIllustration() {
         />
       </svg>
 
-      <h2 className="font-bold text-2xl text-[var(--clr-text-primary)] text-center mt-2 mb-1">
+      <h2 className="font-display font-bold text-2xl text-[var(--clr-text-primary)] text-center mt-2 mb-1">
         {t('app_name')}
       </h2>
       <p className="text-sm text-[var(--clr-text-secondary)] text-center mb-2">{t('tagline')}</p>

@@ -3,54 +3,50 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
+      // Colours map to the CSS-variable design tokens in src/index.css, so both
+      // the token classes (bg-[var(--clr-primary)]) used across the existing
+      // components AND the friendly aliases below (bg-primary) resolve to the
+      // same value and re-theme in high-contrast mode automatically.
       colors: {
-        // Primary brand — calm, trustworthy deep teal.
-        teal: {
-          50: '#e6f2f2',
-          100: '#cce5e5',
-          200: '#a6d4d5',
-          600: '#0D7377', // primary
-          700: '#0a5c5f',
-          800: '#084749',
+        primary: {
+          DEFAULT: 'var(--clr-primary)',
+          strong: 'var(--clr-primary-strong)',
+          light: 'var(--clr-primary-light)',
         },
-        warm: {
-          white: '#FAF9F6', // warm background
+        accent: {
+          DEFAULT: 'var(--clr-accent)',
+          strong: 'var(--clr-accent-strong)',
+          light: 'var(--clr-accent-light)',
         },
-        // Cheerful accent family used across illustrations and highlights.
-        marigold: {
-          100: '#fff1d6',
-          400: '#FFC95C',
-          500: '#F4A261', // warm amber
-          600: '#e08a3e',
+        mint: {
+          DEFAULT: 'var(--clr-mint)',
+          light: 'var(--clr-mint-light)',
         },
-        // Supportive amber for fallback cards — never red.
-        support: {
-          50: '#fdf6e9',
-          100: '#fbedcf',
-          600: '#b77f1f',
-          700: '#8f6315',
-        },
+        surface: 'var(--clr-surface)',
+        bg: 'var(--clr-bg)',
         ink: {
-          500: '#5b6b6a',
-          700: '#33403f',
-          900: '#1c2625',
+          DEFAULT: 'var(--clr-text-primary)',
+          muted: 'var(--clr-text-secondary)',
         },
+        line: 'var(--clr-border)',
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        // Body default — Atkinson Hyperlegible (low-vision legibility).
+        sans: ['Atkinson Hyperlegible', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        // Characterful display, used with restraint.
+        display: ['Bricolage Grotesque', 'Atkinson Hyperlegible', 'system-ui', 'sans-serif'],
+        // Tight UI labels / captions.
+        ui: ['Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         '2xl': '1.25rem',
         '3xl': '1.75rem',
+        '4xl': '2.25rem',
       },
       boxShadow: {
-        soft: '0 10px 30px -12px rgba(13, 115, 119, 0.25)',
-        lift: '0 18px 40px -16px rgba(13, 115, 119, 0.35)',
-        glow: '0 0 0 4px rgba(13, 115, 119, 0.12)',
-      },
-      backgroundImage: {
-        'brand-gradient': 'linear-gradient(135deg, #0D7377 0%, #14A0A5 100%)',
-        'sun-gradient': 'linear-gradient(135deg, #F4A261 0%, #FFC95C 100%)',
+        soft: '0 10px 30px -12px rgba(76, 46, 156, 0.22)',
+        lift: '0 20px 44px -18px rgba(76, 46, 156, 0.34)',
+        glow: '0 0 0 4px rgba(245, 165, 36, 0.28)',
       },
       keyframes: {
         'fade-up': {

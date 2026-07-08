@@ -6,6 +6,7 @@ import InputBar from '../components/Chat/InputBar'
 import QuestionPanel from '../components/Chat/QuestionPanel'
 import ConsentScreen from '../components/Onboarding/ConsentScreen'
 import { useChat } from '../hooks/useChat'
+import { useLanguage } from '../contexts/LanguageContext'
 import api from '../api'
 
 /**
@@ -19,6 +20,7 @@ export default function Home() {
     () => sessionStorage.getItem('consent_given') === 'true',
   )
   const [offline, setOffline] = useState(false)
+  const { t } = useLanguage()
 
   const handleOffline = useCallback(() => setOffline(true), [])
   const { messages, isLoading, sendMessage } = useChat({ onOffline: handleOffline })
@@ -52,9 +54,15 @@ export default function Home() {
     <div className="flex flex-col h-screen">
       <Header />
       {offline && <OfflineBanner />}
-      <ChatWindow messages={messages} isLoading={isLoading} />
-      <InputBar onSend={sendMessage} disabled={isLoading} />
-      <QuestionPanel onSelectQuestion={(q) => sendMessage(q)} />
+      <main id="main-content" tabIndex={-1} className="flex flex-col flex-1 min-h-0 focus:outline-none">
+        {/* Stable page heading so the chat route always has an h1 and the empty
+            state's WelcomeIllustration <h2> nests correctly (no skipped level).
+            Visually hidden — the visible title lives in the header brand. */}
+        <h1 className="sr-only">{t('chat_heading')}</h1>
+        <ChatWindow messages={messages} isLoading={isLoading} />
+        <InputBar onSend={sendMessage} disabled={isLoading} />
+        <QuestionPanel onSelectQuestion={(q) => sendMessage(q)} />
+      </main>
     </div>
   )
 }

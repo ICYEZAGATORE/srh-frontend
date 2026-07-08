@@ -2,18 +2,29 @@
   "app_name": "Ubuzima bw'Ingirabuzima",
   "tagline": "Baza ikibazo icyo ari cyo cyose ku buzima bwawe — mu ibanga kandi nta gucirwaho iteka.",
   "lang_toggle": "English",
+  "skip_to_content": "Simbukira ku bikubiye mu rupapuro",
+  "nav_home": "Ahabanza",
+  "nav_start_chat": "Tangira ikiganiro",
+
   "consent_title": "Murakaza neza — reka dutegure ahantu hatekanye",
   "consent_body": "Aha ni ahantu h'ibanga kandi h'ibanga rikomeye ho kwiga ku buzima bw'imyororokere n'imibonano mpuzabitsina. Ntidukubaza izina ryawe kandi ntitubika uwo uri we. Ushobora guhagarara igihe cyose ushaka.",
   "consent_confirm": "Komeza",
   "consent_age_confirm": "Mfite imyaka 13 cyangwa irenga",
   "consent_anonymous_confirm": "Numva ko ibibazo byanjye bidasangirwa n'undi (ni ibanga)",
+
   "chat_placeholder": "Andika ikibazo cyawe hano...",
   "chat_send": "Ohereza",
   "chat_loading": "Turimo gutegura igisubizo cyiza...",
   "chat_fallback_message": "Ntabwo nshobora gufasha muri icyo kibazo. Nyamuneka vugana n'umujyanama w'ubuzima wizewe.",
   "chat_referral_label": "Aho wakwiyambaza",
+  "chat_back_home": "Subira ahabanza",
+  "chat_heading": "Baza ibibazo byawe by'ubuzima",
+
   "tts_play": "Umva iki gisubizo",
   "tts_stop": "Hagarika kumva",
+  "read_page_aloud": "Soma uru rupapuro mu ijwi",
+  "read_page_stop": "Hagarika gusoma",
+
   "settings_title": "Igenamiterere ry'ubushobozi bwo kugera",
   "settings_font_size": "Ingano y'inyandiko",
   "settings_contrast": "Itandukaniro rikomeye ry'amabara",
@@ -23,8 +34,40 @@
   "settings_font_xl": "Nini cyane",
   "settings_open": "Fungura igenamiterere ry'ubushobozi bwo kugera",
   "settings_close": "Funga igenamiterere",
+
   "offline_banner": "Serivisi ntiraboneka by'agateganyo. Nyamuneka ongera ugerageze nyuma.",
   "health_hotline_label": "Telefoni y'ubufasha bw'ubuzima mu Rwanda",
   "health_hotline_number": "114",
-  "assessment_placeholder": "Igice cy'isuzuma kiraza vuba."
+  "assessment_placeholder": "Igice cy'isuzuma kiraza vuba.",
+
+  "landing_eyebrow": "Ubuntu · Ibanga · Nta gucirwaho iteka",
+  "landing_hero_q1": "Ese ni ibisanzwe?",
+  "landing_hero_q2": "Nakwirinda nte?",
+  "landing_hero_q3": "Nakwiyambaza nde?",
+  "landing_hero_typed_label": "Ingero z'ibibazo washobora kubaza",
+  "landing_title": "Ibisubizo nyakuri ku mubiri wawe, ubuzima bwawe, n'ibyo uhitamo.",
+  "landing_who": "Ku rubyiruko n'abantu bafite ubumuga mu Rwanda — mu Kinyarwanda cyangwa Icyongereza.",
+  "landing_learn_more": "Uko bikora, indimi, ubushobozi bwo kugera n'umutekano",
+  "landing_lang_title": "Ururimi rwawe",
+  "landing_lang_body": "Hindura hagati y'Ikinyarwanda n'Icyongereza igihe cyose ukoresheje buto y'ururimi iri hejuru y'urupapuro.",
+  "landing_cta_start": "Tangira ikiganiro",
+  "landing_cta_how": "Reba uko bikora",
+
+  "landing_what_title": "Iki ni iki?",
+  "landing_help_title": "Icyo gishobora gufasha",
+  "landing_help_1": "Ubwangavu n'impinduka umubiri wawe unyuramo",
+  "landing_help_2": "Kwirinda gutwita no gusobanukirwa uburyo bwo kuboneza urubyaro",
+  "landing_help_3": "Virusi itera SIDA n'izindi ndwara zandurira mu mibonano mpuzabitsina",
+  "landing_help_4": "Imibanire myiza, kwemeranya, no kwirinda",
+  "landing_help_5": "Aho wabona ubufasha nyakuri hafi yawe",
+
+  "landing_private_title": "Ibanga kandi nta zina",
+  "landing_safety_title": "Niba ari ibyihutirwa",
+  "landing_how_title": "Uko uyikoresha",
+  "landing_how_1": "Kanda \"Tangira ikiganiro\" wemeze ko ufite imyaka 13 cyangwa irenga kandi ko ikiganiro cyawe ari ibanga.",
+  "landing_how_2": "Andika ikibazo cyawe — cyangwa ukande kimwe mu bibazo byateguwe niba kwandika bigoye.",
+  "landing_how_3": "Hindura hagati y'Ikinyarwanda n'Icyongereza igihe cyose ukoresheje buto y'ururimi.",
+  "landing_how_4": "Fungura igenamiterere ry'ubushobozi bwo kugera kugira ngo unini inyandiko, ukoreshe amabara atandukanye cyane, cyangwa umve ibisubizo bisomwa mu ijwi.",
+
+  "landing_access_title": "Yubatswe kugira ngo ikoreshwe na bose"
 }

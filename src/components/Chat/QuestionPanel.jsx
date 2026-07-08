@@ -91,7 +91,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-controls="question-panel-body"
-        className="w-full py-3 px-4 flex items-center justify-between bg-[var(--clr-surface)] border-t border-[var(--clr-border)] text-[var(--clr-primary)] font-semibold text-sm"
+        className="w-full py-3 px-4 flex items-center justify-between bg-[var(--clr-surface)] border-t border-[var(--clr-border)] text-[var(--clr-primary)] font-semibold text-sm hover:bg-[var(--clr-primary-light)] transition-colors"
       >
         Browse Questions
         <svg
@@ -155,11 +155,8 @@ export default function QuestionPanel({ onSelectQuestion }) {
           {activeCategory.questions.map((q) => (
             <div
               key={q}
-              className="bg-[var(--clr-surface)] rounded-2xl p-4 border border-[var(--clr-border)] flex items-start justify-between gap-3 transition-colors hover:border-[var(--clr-primary)]/40"
+              className="bg-[var(--clr-surface)] rounded-2xl p-4 border border-[var(--clr-border)] flex items-start justify-between gap-3 transition-colors hover:border-[var(--clr-primary)]/50"
             >
-              {/* left accent strip */}
-              <div className="w-1 rounded-full bg-[var(--clr-accent)] self-stretch flex-shrink-0" aria-hidden="true" />
-
               {/* Card body — press to ask immediately */}
               <button
                 type="button"
@@ -175,7 +172,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
                 type="button"
                 onClick={() => speakThenAsk(q)}
                 aria-label={`Read aloud and ask: ${q}`}
-                className="w-9 h-9 rounded-xl bg-[var(--clr-accent-light)] flex items-center justify-center flex-shrink-0 text-[var(--clr-accent)] active:scale-95 transition-transform"
+                className="w-9 h-9 rounded-xl bg-[var(--clr-primary-light)] flex items-center justify-center flex-shrink-0 text-[var(--clr-primary)] hover:bg-[var(--clr-accent-light)] active:scale-95 transition-[background-color,transform]"
               >
                 <SpeakerIcon />
               </button>

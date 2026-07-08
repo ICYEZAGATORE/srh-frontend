@@ -7,7 +7,7 @@
 // Bump this version on every deploy that must invalidate the cached app shell.
 // The activate handler deletes any cache whose name != CACHE, so bumping the
 // suffix purges the previous shell (fixes users stuck on a stale build).
-const CACHE = 'srh-shell-v2'
+const CACHE = 'srh-shell-v3'
 const SHELL = ['/', '/index.html', '/manifest.json', '/icon-192.png']
 
 self.addEventListener('install', (event) => {

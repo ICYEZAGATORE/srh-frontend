@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+/* Type system:
+   - Display  : Bricolage Grotesque — characterful, friendly, NOT a serif.
+                Personality now comes from type + spacing + voice + the one
+                signature motif, NOT from saturated colour.
+   - Body     : Atkinson Hyperlegible — designed by the Braille Institute for
+                low vision. Legibility is a first-class requirement here.
+   - UI/labels: Inter — tight, neutral, for captions / uppercase labels. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,40 +13,63 @@
 
 /* ── Design tokens ──────────────────────────────────────────────────────────
    All component colours reference these via Tailwind arbitrary values
-   [var(--clr-x)]. High-contrast mode therefore only needs to swap the values
-   below — nothing else in the codebase changes. */
-:root {
-  --clr-primary:        #0A7C73; /* deep teal — main brand, headers, active states */
-  --clr-primary-light:  #E6F4F3; /* very light teal — card backgrounds, input fill */
-  --clr-accent:         #C2461F; /* warm terracotta — CTAs, send, highlights (white text = 5.0:1 AA) */
-  --clr-accent-light:   #FEF0EB; /* light coral — hover states, soft badges */
-  --clr-yellow:         #F5C842; /* warm yellow — category pill active, star moments */
-  --clr-yellow-light:   #FEF9E7; /* light yellow — fallback card background */
-  --clr-surface:        #FFFFFF; /* card and input backgrounds */
-  --clr-bg:             #F7F9F8; /* page background — off-white with green tint */
-  --clr-text-primary:   #1A2E2D; /* near-black with teal undertone */
-  --clr-text-secondary: #5A6E6D; /* muted text — subtext, placeholders */
-  --clr-border:         #D4E5E3; /* light teal-tinted borders */
+   [var(--clr-x)]. High-contrast mode swaps the values below — nothing else in
+   the codebase changes.
 
-  /* Semantic state tokens (all verified: white text on solid, and solid-as-text
-     on white, meet WCAG AA >= 4.5:1). NOTE: there is deliberately NO red "error"
-     token — this product forbids red anywhere (anxious teen audience). Error /
-     validation states use --clr-warning. */
-  --clr-success:        #1F7A54; /* green  — success/confirmation */
-  --clr-success-light:  #E6F4EC;
-  --clr-warning:        #9A5B00; /* amber  — warnings, non-red alerts */
-  --clr-warning-light:  #FBF0DC;
-  --clr-info:           #0B6076; /* teal-blue — informational */
-  --clr-info-light:     #E4F1F5;
+   Palette philosophy (revised): a warm, muted NEUTRAL base carries the whole
+   UI, with a SINGLE soft accent (muted teal) reserved for the primary action
+   and key state changes only — never as a background wash or repeated
+   decoration. A calm, low-saturation field is easier for low-vision users to
+   read against, so this is an accessibility decision as much as a visual one.
+
+   The six named base values:
+     Warm Paper   #F4F0E9  — page background (warm off-white, not clinical white)
+     Warm Ivory   #FCFAF5  — cards / surfaces
+     Ink          #2A2521  — primary text (warm near-black, 13.7:1 on paper)
+     Warm Grey    #635A51  — secondary text (6.2:1 on paper)
+     Muted Teal   #2F6B62  — the one accent (white text = 6.2:1; as text = 5.4:1)
+     Warm Line    #E4DDD2  — borders / dividers
+   No red anywhere (anxious teen audience); non-red alerts use --clr-warning. */
+:root {
+  --clr-primary:        #2F6B62; /* muted teal — the single accent (primary buttons, active state) */
+  --clr-primary-strong: #26564F; /* darker teal — hover / active / pressed */
+  --clr-primary-light:  #E7EEEC; /* soft teal tint — used sparingly for subtle active fills */
+  --clr-accent:         #2F6B62; /* SAME single accent (send, CTA, focus) — deliberately one colour */
+  --clr-accent-strong:  #26564F;
+  --clr-accent-light:   #E7EEEC;
+  --clr-mint:           #2F6B62; /* legacy token → folded into the single accent */
+  --clr-mint-light:     #EFEBE2; /* legacy token → neutral warm tint */
+  --clr-yellow:         #C99A2E; /* muted amber — logo mark, supportive (never red) */
+  --clr-yellow-light:   #F3EAD6; /* soft amber — supportive fallback card background */
+  --clr-surface:        #FCFAF5; /* card and input backgrounds — warm ivory */
+  --clr-bg:             #F4F0E9; /* page background — warm off-white */
+  --clr-text-primary:   #2A2521; /* warm near-black (13.7:1 on bg) */
+  --clr-text-secondary: #635A51; /* warm grey (6.2:1 on bg) */
+  --clr-border:         #E4DDD2; /* warm dividers / borders */
+
+  /* Text colours to place ON solid fills. */
+  --clr-on-primary:     #FFFFFF; /* white on muted teal = 6.2:1 */
+  --clr-on-accent:      #FFFFFF; /* white on muted teal = 6.2:1 */
+
+  /* Semantic state tokens (all verified AA). No red token by design. */
+  --clr-success:        #2F6B4F; /* muted green — success/confirmation */
+  --clr-success-light:  #E4EFE8;
+  --clr-warning:        #8A5A00; /* amber — warnings, non-red alerts (4.9:1 on yellow-light) */
+  --clr-warning-light:  #F3EAD6;
+  --clr-info:           #2F5E6B; /* muted teal-blue — informational */
+  --clr-info-light:     #E4EDEF;
 }
 
-/* High-contrast override — swaps tokens only. The entire UI re-themes from
-   these values; no other high-contrast selectors exist anywhere. */
+/* High-contrast override — swaps tokens only. Black / white / yellow scheme. */
 .high-contrast {
   --clr-primary:        #000000;
+  --clr-primary-strong: #000000;
   --clr-primary-light:  #000000;
   --clr-accent:         #FFFF00;
+  --clr-accent-strong:  #FFFF00;
   --clr-accent-light:   #000000;
+  --clr-mint:           #000000;
+  --clr-mint-light:     #000000;
   --clr-yellow:         #FFFF00;
   --clr-yellow-light:   #000000;
   --clr-surface:        #000000;
@@ -47,7 +77,8 @@
   --clr-text-primary:   #FFFFFF;
   --clr-text-secondary: #FFFF00;
   --clr-border:         #FFFFFF;
-  /* Semantic tokens collapse into the black/white/yellow HC scheme */
+  --clr-on-primary:     #000000; /* black text on the yellow accent */
+  --clr-on-accent:      #000000;
   --clr-success:        #000000;
   --clr-success-light:  #000000;
   --clr-warning:        #000000;
@@ -61,18 +92,43 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
     background: var(--clr-bg);
     color: var(--clr-text-primary);
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Visible focus ring for keyboard users. Uses the accent token so it stays
-     bright (yellow) in high-contrast mode where primary becomes black. */
+  .font-display {
+    font-family: 'Bricolage Grotesque', 'Atkinson Hyperlegible', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  .font-ui {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Visible focus ring for keyboard users. Accent (teal) normally; yellow in
+     high-contrast mode where primary/accent becomes black. */
   :focus-visible {
     outline: 3px solid var(--clr-accent);
     outline-offset: 2px;
     border-radius: 0.5rem;
+  }
+
+  /* Skip-to-content link — visually hidden until focused. */
+  .skip-link {
+    position: absolute;
+    left: 0.75rem;
+    top: -3rem;
+    z-index: 60;
+    background: var(--clr-primary);
+    color: var(--clr-on-primary);
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    transition: top 0.18s ease;
+  }
+  .skip-link:focus {
+    top: 0.75rem;
   }
 }
 
@@ -85,6 +141,27 @@
   animation: bounce-dot 1.2s ease-in-out infinite;
 }
 
+/* Signature motif motion: a soft blink on the typing caret. The signature now
+   carries personality through type + motion, not colour. Suppressed under
+   reduced-motion. */
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.type-caret {
+  animation: caret-blink 1.1s step-end infinite;
+}
+
+/* Reveal-on-mount — a single, restrained fade+rise. */
+@keyframes reveal-up {
+  0%   { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.reveal-up {
+  animation: reveal-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 /* Hide the scrollbar on the horizontal category-pill row */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -94,7 +171,7 @@
   scrollbar-width: none;
 }
 
-/* Respect users who prefer reduced motion */
+/* Respect users who prefer reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -104,4 +181,5 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+  .type-caret { opacity: 1 !important; }
 }

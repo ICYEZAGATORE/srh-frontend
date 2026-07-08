@@ -30,6 +30,25 @@ Record: device, OS version, browser + version, screen-reader version, language (
 
 ---
 
+## Screen 0 — Landing / front page (`Landing`, route `/`)
+
+This is the first screen every user meets, before consent. It carries the
+platform description, purpose, safety boundary and how-to-use guidance.
+
+### NVDA (desktop)
+- [ ] The **skip-to-content** link is the first focusable element; activating it moves focus to `<main>`.
+- [ ] Heading structure reads as a clean outline: one `h1` (hero title) then `h2` section headings ("What is this?", "What it can help with", "Private and anonymous", "If it's an emergency", "How to use it", "Built to be used by everyone") — no skipped levels.
+- [ ] The signature hero animation is **not** announced as noise; instead a single hidden line announces the example questions ("Example questions you can ask: Is this normal?. How do I stay safe?. Who can I talk to?").
+- [ ] The **"Read this page aloud"** button is reachable and announces its pressed/label state; activating it reads the page's static content via Web Speech (no backend needed). Activating again stops it.
+- [ ] "Start a conversation" is a link to the chat; the language toggle and accessibility settings (in the header) are reachable here too.
+
+### TalkBack (Android)
+- [ ] Reading order top-to-bottom matches the visual order; hero, then each section, then the closing call-to-action.
+- [ ] Read-aloud, language toggle and accessibility settings are all operable by double-tap; tap targets ≥ 48×48 dp.
+- [ ] With reduced-motion enabled at the OS level, the hero question stops animating (shows one question statically) and the gradient stops floating.
+
+---
+
 ## Screen 1 — Onboarding / Consent (`ConsentScreen`)
 
 ### NVDA (desktop)
