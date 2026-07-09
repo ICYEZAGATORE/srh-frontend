@@ -81,17 +81,22 @@ const SpeakerIcon = () => (
  *        identical to a typed-and-submitted message.
  */
 export default function QuestionPanel({ onSelectQuestion }) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [open, setOpen] = useState(true) // mobile: open by default; ignored at lg+
   const [activeId, setActiveId] = useState(QUESTION_CATEGORIES[0].id)
   const { speak } = useTTS()
 
   const activeCategory = QUESTION_CATEGORIES.find((c) => c.id === activeId) || QUESTION_CATEGORIES[0]
 
+  // Localised label + question list for the active language (falls back to EN).
+  const catLabel = (cat) => (lang === 'rw' && cat.label_rw ? cat.label_rw : cat.label)
+  const activeQuestions =
+    lang === 'rw' && activeCategory.questions_rw ? activeCategory.questions_rw : activeCategory.questions
+
   const ask = (question) => onSelectQuestion?.(question)
 
   const speakThenAsk = (question) => {
-    speak(question, 'en')
+    speak(question, lang)
     setTimeout(() => onSelectQuestion?.(question), 300)
   }
 
@@ -108,7 +113,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
         aria-controls="question-panel-body"
         className="lg:hidden w-full py-3 px-4 flex items-center justify-between bg-[var(--clr-surface)] border-t border-[var(--clr-border)] text-[var(--clr-primary)] font-semibold text-sm hover:bg-[var(--clr-primary-light)] transition-colors"
       >
-        Browse Questions
+        {t('questions_browse')}
         <svg
           width="18"
           height="18"
@@ -143,7 +148,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
         {/* Category tabs — horizontal scroll, no wrap */}
         <div
           role="tablist"
-          aria-label="Question categories"
+          aria-label={t('questions_categories')}
           className="px-4 py-3 flex gap-2 overflow-x-auto scrollbar-hide bg-[var(--clr-surface)] lg:bg-transparent border-b border-[var(--clr-border)] shrink-0"
         >
           {QUESTION_CATEGORIES.map((cat) => {
@@ -164,7 +169,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
                 }`}
               >
                 {CATEGORY_ICONS[cat.id]}
-                {cat.label}
+                {catLabel(cat)}
               </button>
             )
           })}
@@ -178,7 +183,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
           aria-labelledby={`tab-${activeCategory.id}`}
           className="grid grid-cols-1 gap-3 p-4 overflow-y-auto max-h-[44vh] lg:max-h-none lg:flex-1 lg:min-h-0"
         >
-          {activeCategory.questions.map((q, i) => {
+          {activeQuestions.map((q, i) => {
             const tint = BADGE_TINTS[i % BADGE_TINTS.length]
             return (
               <div
@@ -198,7 +203,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
                 <button
                   type="button"
                   onClick={() => ask(q)}
-                  aria-label={`Ask: ${q}`}
+                  aria-label={`${t('q_ask')} ${q}`}
                   className="flex-1 text-left text-sm font-medium text-[var(--clr-text-primary)] leading-snug rounded-lg active:bg-[var(--clr-primary-light)] transition-colors"
                 >
                   {q}
@@ -208,7 +213,7 @@ export default function QuestionPanel({ onSelectQuestion }) {
                 <button
                   type="button"
                   onClick={() => speakThenAsk(q)}
-                  aria-label={`Read aloud and ask: ${q}`}
+                  aria-label={`${t('q_read_ask')} ${q}`}
                   className="w-9 h-9 rounded-xl bg-[var(--clr-primary-light)] flex items-center justify-center flex-shrink-0 text-[var(--clr-primary)] hover:bg-[var(--clr-accent-light)] active:scale-95 transition-[background-color,transform]"
                 >
                   <SpeakerIcon />

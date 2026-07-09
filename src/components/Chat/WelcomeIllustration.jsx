@@ -72,7 +72,7 @@ export default function WelcomeIllustration() {
       </h2>
       <p className="text-sm text-[var(--clr-text-secondary)] text-center mb-2">{t('tagline')}</p>
       <p className="text-xs text-[var(--clr-text-secondary)] text-center">
-        Tap a question below or type your own.
+        {t('welcome_prompt')}
       </p>
     </div>
   )

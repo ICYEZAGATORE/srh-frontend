@@ -78,7 +78,7 @@ export default function ConsentScreen({ onConsent }) {
           <svg
             viewBox="0 0 320 180"
             role="img"
-            aria-label="Two young people talking openly about health"
+            aria-label={t('consent_illustration_alt')}
             className="w-full max-w-[340px] mx-auto"
           >
             <path d="M0 128 Q160 104 320 128 L320 180 L0 180 Z" style={{ fill: 'var(--clr-primary-light)' }} />
@@ -103,7 +103,7 @@ export default function ConsentScreen({ onConsent }) {
 
           <div className="mt-2">
             <h1 className="font-display font-bold text-2xl text-[var(--clr-text-primary)] text-center mb-2">
-              Your health questions, answered safely.
+              {t('consent_headline')}
             </h1>
             <p className="text-sm text-[var(--clr-text-secondary)] text-center mb-4">{t('consent_body')}</p>
 

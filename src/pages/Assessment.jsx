@@ -20,7 +20,7 @@ export default function Assessment() {
         <div className="max-w-md w-full text-center p-8 rounded-3xl bg-[var(--clr-surface)] border border-[var(--clr-border)] shadow-soft">
           <AltImage
             src="/icon-192.png"
-            fallbackAlt="SRH Education Platform logo"
+            fallbackAlt={t('assessment_logo_alt')}
             className="mx-auto w-16 h-16 rounded-3xl mb-4"
           />
           <h1 className="font-display text-xl font-bold text-[var(--clr-text-primary)]">{t('assessment_placeholder')}</h1>

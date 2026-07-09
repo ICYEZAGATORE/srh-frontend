@@ -7,6 +7,8 @@
   "nav_start_chat": "Start a conversation",
 
   "consent_title": "Welcome — let's set up a safe space",
+  "consent_headline": "Your health questions, answered safely.",
+  "consent_illustration_alt": "Two young people talking openly about health",
   "consent_body": "This is a private, anonymous space to learn about sexual and reproductive health. We don't ask for your name and we don't store who you are. You can stop at any time.",
   "consent_confirm": "Continue",
   "consent_age_confirm": "I am 13 years or older",
@@ -19,7 +21,12 @@
   "chat_referral_label": "Where to get help",
   "chat_back_home": "Back to home",
   "chat_heading": "Ask your health questions",
+  "welcome_prompt": "Tap a question below or type your own.",
   "questions_title": "Suggested questions",
+  "questions_browse": "Browse Questions",
+  "questions_categories": "Question categories",
+  "q_ask": "Ask:",
+  "q_read_ask": "Read aloud and ask:",
 
   "tts_play": "Listen to this answer",
   "tts_stop": "Stop listening",
@@ -40,6 +47,7 @@
   "health_hotline_label": "Rwanda Health Hotline",
   "health_hotline_number": "114",
   "assessment_placeholder": "Assessment module coming soon.",
+  "assessment_logo_alt": "SRH Education Platform logo",
 
   "landing_eyebrow": "Free · Private · Judgment-free",
   "landing_hero_q1": "Is this normal?",
