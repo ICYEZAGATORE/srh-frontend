@@ -54,13 +54,28 @@ export default function Home() {
     <div className="flex flex-col h-screen">
       <Header />
       {offline && <OfflineBanner />}
-      <main id="main-content" tabIndex={-1} className="flex flex-col flex-1 min-h-0 focus:outline-none">
+      {/* On mobile (default) the layout is unchanged: chat, then the collapsible
+          suggested-questions panel below it. At lg+ it becomes two columns —
+          chat ~65% on the left, suggested questions ~35% on the right.
+          Reading/DOM order is deliberately chat-first (primary content), with
+          the suggestions as a complementary <aside> after it. */}
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex flex-col flex-1 min-h-0 focus:outline-none lg:flex-row"
+      >
         {/* Stable page heading so the chat route always has an h1 and the empty
             state's WelcomeIllustration <h2> nests correctly (no skipped level).
             Visually hidden — the visible title lives in the header brand. */}
         <h1 className="sr-only">{t('chat_heading')}</h1>
-        <ChatWindow messages={messages} isLoading={isLoading} />
-        <InputBar onSend={sendMessage} disabled={isLoading} />
+
+        {/* Chat column */}
+        <div className="flex flex-col flex-1 min-h-0 lg:w-[65%] lg:flex-none">
+          <ChatWindow messages={messages} isLoading={isLoading} />
+          <InputBar onSend={sendMessage} disabled={isLoading} />
+        </div>
+
+        {/* Suggested-questions column (complementary) */}
         <QuestionPanel onSelectQuestion={(q) => sendMessage(q)} />
       </main>
     </div>
