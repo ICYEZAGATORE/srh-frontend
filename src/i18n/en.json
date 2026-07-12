@@ -17,6 +17,7 @@
   "chat_placeholder": "Type your question here...",
   "chat_send": "Send",
   "chat_loading": "Preparing a thoughtful answer...",
+  "chat_error": "Sorry, something went wrong sending your message. Please try again in a moment.",
   "chat_fallback_message": "I'm not able to help with that. Please reach out to a trusted health worker.",
   "chat_referral_label": "Where to get help",
   "chat_back_home": "Back to home",
@@ -32,6 +33,15 @@
   "tts_stop": "Stop listening",
   "read_page_aloud": "Read this page aloud",
   "read_page_stop": "Stop reading",
+
+  "voice_start": "Start voice input",
+  "voice_stop": "Listening… tap to stop",
+  "voice_listening": "Listening… speak your question, then tap the microphone to stop.",
+  "voice_unavailable_rw_label": "Voice input unavailable in Kinyarwanda",
+  "voice_unavailable_rw": "Voice input isn't available in Kinyarwanda yet. You can type your question, or switch to English to use voice.",
+  "voice_error_permission": "Microphone access was blocked. Allow microphone access in your browser to use voice input.",
+  "voice_error_no_speech": "No speech was detected. Tap the microphone and try speaking again.",
+  "voice_error_generic": "Voice input didn't work that time. Please try again, or type your question.",
 
   "settings_title": "Accessibility settings",
   "settings_font_size": "Text size",

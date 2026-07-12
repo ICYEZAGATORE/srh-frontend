@@ -210,6 +210,28 @@ Once you translate them, I'll move them into the i18n files so they follow the l
 | Each question card (action) | Ask: _{question}_ | *(translate the prefix "Ask:")* |
 | Each question card (speaker) | Read aloud and ask: _{question}_ | *(translate the prefix "Read aloud and ask:")* |
 | Assessment logo (alt) | SRH Education Platform logo | |
+| ⚠️ Chat error (`chat_error`) | Sorry, something went wrong sending your message. Please try again in a moment. | *(shown in EN until translated)* |
+
+---
+
+## N. Voice input (microphone) — NEW, drafts need a native-speaker check ✅
+
+New UI chrome for the optional speech-to-text microphone. Browser speech
+recognition only works in English, so in Kinyarwanda mode the mic is shown
+disabled with an honest explanation (it never mistranscribes). "mikoro" =
+microphone (borrowed) — replace if there's a preferred term. **(SR)** labels are
+read aloud to blind users.
+
+| key | English | Current Kinyarwanda (draft) | Your Kinyarwanda |
+|---|---|---|---|
+| voice_start (SR) | Start voice input | Tangira kuvuga ikibazo | |
+| voice_stop (SR) | Listening… tap to stop | Ndumva… kanda uhagarike | |
+| voice_listening (SR) | Listening… speak your question, then tap the microphone to stop. | Ndumva… vuga ikibazo cyawe, hanyuma ukande kuri mikoro uhagarike. | |
+| voice_unavailable_rw_label (SR) | Voice input unavailable in Kinyarwanda | Kuvuga ikibazo ntibiraboneka mu Kinyarwanda | |
+| voice_unavailable_rw | Voice input isn't available in Kinyarwanda yet. You can type your question, or switch to English to use voice. | Kuvuga ikibazo ntibiraboneka mu Kinyarwanda. Ushobora kwandika ikibazo cyawe, cyangwa uhindukirire ku Cyongereza kugira ngo ukoreshe ijwi. | |
+| voice_error_permission | Microphone access was blocked. Allow microphone access in your browser to use voice input. | Uruhushya rwo gukoresha mikoro rwahagaritswe. Emerera mikoro muri mushakisha yawe kugira ngo ukoreshe ijwi. | |
+| voice_error_no_speech | No speech was detected. Tap the microphone and try speaking again. | Nta majwi yumvikanye. Kanda kuri mikoro wongere ugerageze kuvuga. | |
+| voice_error_generic | Voice input didn't work that time. Please try again, or type your question. | Kuvuga ikibazo ntibyakunze ubu. Nyamuneka wongere ugerageze, cyangwa wandike ikibazo cyawe. | |
 
 ---
 

@@ -33,6 +33,15 @@
   "read_page_aloud": "Soma uru rupapuro mu ijwi",
   "read_page_stop": "Hagarika gusoma",
 
+  "voice_start": "Tangira kuvuga ikibazo",
+  "voice_stop": "Ndumva… kanda uhagarike",
+  "voice_listening": "Ndumva… vuga ikibazo cyawe, hanyuma ukande kuri mikoro uhagarike.",
+  "voice_unavailable_rw_label": "Kuvuga ikibazo ntibiraboneka mu Kinyarwanda",
+  "voice_unavailable_rw": "Kuvuga ikibazo ntibiraboneka mu Kinyarwanda. Ushobora kwandika ikibazo cyawe, cyangwa uhindukirire ku Cyongereza kugira ngo ukoreshe ijwi.",
+  "voice_error_permission": "Uruhushya rwo gukoresha mikoro rwahagaritswe. Emerera mikoro muri mushakisha yawe kugira ngo ukoreshe ijwi.",
+  "voice_error_no_speech": "Nta majwi yumvikanye. Kanda kuri mikoro wongere ugerageze kuvuga.",
+  "voice_error_generic": "Kuvuga ikibazo ntibyakunze ubu. Nyamuneka wongere ugerageze, cyangwa wandike ikibazo cyawe.",
+
   "settings_title": "Igenamiterere ry'ubushobozi bwo kugera",
   "settings_font_size": "Ingano y'inyandiko",
   "settings_contrast": "Itandukaniro rikomeye ry'amabara",

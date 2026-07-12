@@ -162,6 +162,19 @@
   animation: reveal-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Voice input: a soft pulsing ring on the microphone while listening. Colour
+   comes from the single accent. Listening is ALSO signalled by a filled colour
+   state (not motion alone), so reduced-motion users still get a clear cue; the
+   global reduced-motion rule below neutralises the animation. */
+@keyframes mic-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(47, 107, 98, 0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(47, 107, 98, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(47, 107, 98, 0); }
+}
+.mic-listening {
+  animation: mic-pulse 1.5s ease-out infinite;
+}
+
 /* Hide the scrollbar on the horizontal category-pill row */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

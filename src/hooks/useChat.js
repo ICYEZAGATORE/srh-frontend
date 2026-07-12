@@ -19,12 +19,12 @@ const devLog = (...args) => {
 export function useChat({ onOffline } = {}) {
   const [messages, setMessages] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const { sessionId, simplified } = useSession()
-  const { lang } = useLanguage()
+  const { sessionId, simplified, startSession } = useSession()
+  const { lang, t } = useLanguage()
 
   // Keep latest lang/session without re-creating sendMessage on every change.
-  const ctxRef = useRef({ sessionId, simplified, lang })
-  ctxRef.current = { sessionId, simplified, lang }
+  const ctxRef = useRef({ sessionId, simplified, lang, startSession, t })
+  ctxRef.current = { sessionId, simplified, lang, startSession, t }
 
   const clearMessages = useCallback(() => setMessages([]), [])
 
@@ -33,7 +33,7 @@ export function useChat({ onOffline } = {}) {
       const trimmed = (text || '').trim()
       if (!trimmed) return
 
-      const { sessionId, simplified, lang } = ctxRef.current
+      const { sessionId, simplified, lang, startSession, t } = ctxRef.current
 
       const userMsg = {
         id: makeId(),
@@ -46,7 +46,19 @@ export function useChat({ onOffline } = {}) {
       setIsLoading(true)
 
       try {
-        const res = await api.sendMessage(sessionId, trimmed, lang, simplified)
+        // Ensure a valid session before sending. The consent gate deliberately
+        // lets users into the chat even when the initial session-start failed
+        // (e.g. backend cold start), so `sessionId` may still be null here.
+        // Sending null makes the backend reject the request with a 422, which
+        // is NOT an OfflineError and would otherwise fail silently. Lazily
+        // (re)start the session first; if that also fails it throws an
+        // OfflineError and is handled as offline below.
+        let sid = sessionId
+        if (!sid) {
+          sid = await startSession()
+        }
+
+        const res = await api.sendMessage(sid, trimmed, lang, simplified)
         devLog('[chat] response received', { safe: res.safe, fallback: res.fallback })
 
         const isFallback = res.fallback === true || res.safe === false
@@ -73,7 +85,21 @@ export function useChat({ onOffline } = {}) {
         if (err && err.offline) {
           onOffline?.(err)
         } else {
+          // Any other failure (e.g. a 4xx such as a rejected session_id) must
+          // NOT vanish: previously this only devLog'd, which is a no-op in
+          // production, so the user saw the message send and then nothing at
+          // all. Show an honest, non-technical error message instead.
           devLog('[chat] error', err)
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: makeId(),
+              role: 'assistant',
+              text: t('chat_error'),
+              isFallback: false,
+              referral: null,
+            },
+          ])
         }
       } finally {
         setIsLoading(false)
